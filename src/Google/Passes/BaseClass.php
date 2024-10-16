@@ -3,6 +3,7 @@
 namespace Chiiya\Passes\Google\Passes;
 
 use Antwerpes\DataTransferObject\Attributes\Cast;
+use Antwerpes\DataTransferObject\Attributes\Map;
 use Antwerpes\DataTransferObject\Casts\ArrayCaster;
 use Chiiya\Passes\Common\Casters\LegacyValueCaster;
 use Chiiya\Passes\Google\Components\Common\Image;
@@ -28,6 +29,7 @@ abstract class BaseClass extends AbstractClass
          */
         #[NotBlank]
         #[Length(max: 20)]
+        #[Map(from: 'localizedIssuerName.defaultValue.value')]
         public string $issuerName,
         /**
          * Required.
