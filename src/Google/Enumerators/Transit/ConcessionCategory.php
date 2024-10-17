@@ -7,16 +7,16 @@ use Chiiya\Passes\Common\LegacyValueEnumerator;
 final class ConcessionCategory implements LegacyValueEnumerator
 {
     /** @var string */
-    public const string CONCESSION_CATEGORY_UNSPECIFIED = 'CONCESSION_CATEGORY_UNSPECIFIED';
+    public const CONCESSION_CATEGORY_UNSPECIFIED = 'CONCESSION_CATEGORY_UNSPECIFIED';
 
     /** @var string */
-    public const string ADULT = 'ADULT';
+    public const ADULT = 'ADULT';
 
     /** @var string */
-    public const string CHILD = 'CHILD';
+    public const CHILD = 'CHILD';
 
     /** @var string */
-    public const string SENIOR = 'SENIOR';
+    public const SENIOR = 'SENIOR';
 
     public static function values(): array
     {
