@@ -365,10 +365,12 @@ class PassFactory
     /**
      * Create the manifest file.
      */
-    protected function createManifest(string $dir): void
-    {
+    protected function createManifest(string $dir): void {
         $manifest = [];
-        $files = new FilesystemIterator($dir);
+
+        $files = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS),
+        );
 
         /** @var SplFileInfo $file */
         foreach ($files as $file) {
@@ -377,7 +379,10 @@ class PassFactory
                 $manifest[$relative] = sha1_file($file->getRealPath());
             }
         }
-        file_put_contents($dir.self::MANIFEST_FILENAME, json_encode($manifest, JSON_PRETTY_PRINT));
+        file_put_contents(
+            $dir . self::MANIFEST_FILENAME,
+            json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+        );
     }
 
     /**

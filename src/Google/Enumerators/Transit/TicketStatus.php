@@ -29,6 +29,7 @@ final class TicketStatus implements LegacyValueEnumerator
             'used' => self::USED,
             'refunded' => self::REFUNDED,
             'exchanged' => self::EXCHANGED,
+            'ticketStatusUnspecified' => self::TICKET_STATUS_UNSPECIFIED,
             default => $value,
         };
     }

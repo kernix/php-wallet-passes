@@ -25,6 +25,7 @@ final class PassengerType implements LegacyValueEnumerator
         return match ($value) {
             'singlePassenger' => self::SINGLE_PASSENGER,
             'multiplePassengers' => self::MULTIPLE_PASSENGERS,
+            'passengerTypeUnspecified' => self::PASSENGER_TYPE_UNSPECIFIED,
             default => $value,
         };
     }
